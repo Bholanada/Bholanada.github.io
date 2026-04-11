@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дхарма Алтая — Эко-культурный центр у Белухи</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --clr-bg:       #0f1a0f;
+      --clr-surface:  #1a2e1a;
+      --clr-card:     #223322;
+      --clr-accent:   #4ecdc4;
+      --clr-gold:     #c8a951;
+      --clr-text:     #e0e8d8;
+      --clr-muted:    #8fa68f;
+      --clr-white:    #f0f4ec;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(0,0,0,.4);
+      --font:         'Segoe UI', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--clr-bg);
+      color: var(--clr-text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--clr-accent); text-decoration: none; transition: .25s; }
+    a:hover { color: var(--clr-gold); }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(15,26,15,.92);
+      backdrop-filter: blur(12px);      border-bottom: 1px solid rgba(78,205,196,.15);
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav__logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--clr-gold);
+      letter-spacing: 1px;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      color: var(--clr-text);
+      font-size: .9rem;
+      font-weight: 500;
+    }
+
+    .nav__links a:hover { color: var(--clr-accent); }
+
+    .nav__burger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .nav__burger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--clr-text);
+      transition: .3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(15,26,15,.65) 0%, rgba(15,26,15,.92) 100%),
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1600&q=80')
+        center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 30%, rgba(78,205,196,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__content { position: relative; z-index: 2; max-width: 800px; padding: 0 24px; }
+
+    .hero__tag {
+      display: inline-block;
+      background: rgba(200,169,81,.15);
+      color: var(--clr-gold);
+      padding: 6px 20px;
+      border-radius: 20px;
+      font-size: .85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      color: var(--clr-white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--clr-accent); }
+
+    .hero__sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--clr-muted);
+      margin-bottom: 36px;
+    }
+
+    .hero__cta {      display: inline-flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: .3s;
+    }
+
+    .btn--primary {
+      background: var(--clr-accent);
+      color: var(--clr-bg);
+    }
+    .btn--primary:hover {
+      background: var(--clr-gold);
+      color: var(--clr-bg);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,169,81,.3);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--clr-accent);
+      border: 2px solid var(--clr-accent);
+    }
+    .btn--outline:hover {
+      background: var(--clr-accent);
+      color: var(--clr-bg);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: var(--clr-muted);
+      font-size: 1.5rem;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ===== SECTIONS (shared) ===== */
+    section { padding: 100px 0; }
+
+    .section__tag {
+      display: inline-block;
+      color: var(--clr-accent);
+      font-size: .8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section__title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--clr-white);
+      margin-bottom: 16px;
+    }
+
+    .section__desc {
+      color: var(--clr-muted);
+      max-width: 680px;
+      margin-bottom: 48px;
+      font-size: 1.05rem;
+    }
+
+    .section__center { text-align: center; }
+    .section__center .section__desc { margin-left: auto; margin-right: auto; }
+
+    /* ===== CARDS & GRIDS ===== */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+
+    .card {
+      background: var(--clr-card);
+      border: 1px solid rgba(78,205,196,.1);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: .3s;
+    }
+    .card:hover {
+      border-color: var(--clr-accent);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .card__icon { font-size: 2.4rem; margin-bottom: 16px; }    .card h3 { font-size: 1.15rem; color: var(--clr-white); margin-bottom: 10px; }
+    .card p { color: var(--clr-muted); font-size: .95rem; }
+
+    /* ===== INFRASTRUCTURE ===== */
+    #about { background: var(--clr-surface); }
+
+    .infra-card { overflow: hidden; }
+    .infra-card__img { width: 100%; height: 200px; object-fit: cover; display: block; }
+    .infra-card__badge {
+      display: inline-block;
+      background: rgba(200,169,81,.12);
+      color: var(--clr-gold);
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+    .infra-card ul { list-style: none; margin-top: 12px; }
+    .infra-card ul li { color: var(--clr-muted); font-size: .9rem; padding: 4px 0 4px 20px; position: relative; }
+    .infra-card ul li::before { content: '✦'; position: absolute; left: 0; color: var(--clr-accent); }
+
+    /* ===== RETREATS ===== */
+    #retreats { background: var(--clr-surface); }
+    .retreat-card { position: relative; overflow: hidden; }
+    .retreat-card::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; border-radius: 4px 0 0 4px;
+    }
+    .retreat-card:nth-child(1)::before { background: var(--clr-accent); }
+    .retreat-card:nth-child(2)::before { background: var(--clr-gold); }
+    .retreat-card:nth-child(3)::before { background: #a78bfa; }
+    .retreat-card:nth-child(4)::before { background: #f472b6; }
+    .retreat-card:nth-child(5)::before { background: #34d399; }
+    .retreat-card:nth-child(6)::before { background: #fbbf24; }
+
+    .retreat-card__duration {
+      display: inline-block; background: rgba(78,205,196,.1); color: var(--clr-accent);
+      padding: 4px 12px; border-radius: 6px; font-size: .78rem; font-weight: 600; margin-bottom: 12px;
+    }
+    .retreat-card__price { display: block; margin-top: 12px; font-size: 1.05rem; font-weight: 700; color: var(--clr-gold); }
+
+    /* ===== BUDGET ===== */
+    .budget-table { width: 100%; border-collapse: collapse; margin-bottom: 36px; }
+    .budget-table thead th {
+      background: var(--clr-card); color: var(--clr-accent); text-align: left;
+      padding: 14px 20px; font-size: .85rem; text-transform: uppercase; letter-spacing: 1px;
+    }
+    .budget-table thead th:first-child { border-radius: var(--radius) 0 0 0; }
+    .budget-table thead th:last-child { border-radius: 0 var(--radius) 0 0; }    .budget-table tbody td { padding: 16px 20px; border-bottom: 1px solid rgba(78,205,196,.06); }
+    .budget-table tbody tr:hover { background: rgba(78,205,196,.03); }
+    .budget-table .amount { font-weight: 700; color: var(--clr-gold); text-align: right; white-space: nowrap; }
+    .budget-total {
+      display: flex; justify-content: space-between; align-items: center;
+      background: linear-gradient(135deg, rgba(78,205,196,.08), rgba(200,169,81,.08));
+      border: 1px solid rgba(78,205,196,.15); border-radius: var(--radius); padding: 24px 32px;
+    }
+    .budget-total span { font-size: 1.1rem; color: var(--clr-muted); }
+    .budget-total strong { font-size: 1.8rem; color: var(--clr-gold); }
+
+    /* ===== INVESTORS ===== */
+    .investor-card {
+      background: var(--clr-card); border: 1px solid rgba(200,169,81,.15); border-radius: var(--radius);
+      padding: 32px 28px; text-align: center; transition: .3s;
+    }
+    .investor-card:hover { border-color: var(--clr-gold); transform: translateY(-4px); box-shadow: var(--shadow); }
+    .investor-card__level {
+      display: inline-block; background: rgba(200,169,81,.1); color: var(--clr-gold);
+      padding: 6px 16px; border-radius: 20px; font-size: .8rem; font-weight: 700;
+      letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .investor-card__sum { font-size: 1.6rem; font-weight: 800; color: var(--clr-white); margin-bottom: 8px; }
+    .investor-card__return { color: var(--clr-accent); font-size: 1.05rem; margin-bottom: 16px; }
+    .investor-card ul { list-style: none; text-align: left; margin-top: 12px; }
+    .investor-card ul li { color: var(--clr-muted); font-size: .92rem; padding: 6px 0 6px 20px; position: relative; }
+    .investor-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--clr-gold); font-weight: bold; }
+    .investor-note { text-align: center; color: var(--clr-muted); font-size: .9rem; margin-top: 24px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    /* ===== TEAM ===== */
+    #team { background: var(--clr-surface); }
+    .team-role { display: flex; gap: 16px; align-items: flex-start; }
+    .team-role__icon { font-size: 2rem; flex-shrink: 0; }
+    .team-role h4 { color: var(--clr-white); margin-bottom: 4px; }
+    .team-role p { color: var(--clr-muted); font-size: .9rem; }
+
+    /* ===== PHILOSOPHY ===== */
+    .philosophy {
+      text-align: center; padding: 80px 24px;
+      background: radial-gradient(ellipse at center, rgba(78,205,196,.04) 0%, transparent 70%);
+    }
+    .philosophy blockquote {
+      max-width: 720px; margin: 0 auto; font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--clr-white); font-style: italic; line-height: 1.8; position: relative;
+    }
+    .philosophy blockquote::before {
+      content: '❝'; font-size: 4rem; color: var(--clr-accent); position: absolute; top: -30px; left: -10px; opacity: .3;
+    }
+    .philosophy cite { display: block; margin-top: 20px; color: var(--clr-gold); font-style: normal; font-size: .95rem; }
+    /* ===== CONTACT ===== */
+    #contact { text-align: center; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; margin-top: 40px; }
+    .contact-card { background: var(--clr-card); border: 1px solid rgba(78,205,196,.08); border-radius: var(--radius); padding: 36px 28px; }
+    .contact-card h3 { color: var(--clr-white); margin-bottom: 12px; }
+    .contact-card p { color: var(--clr-muted); font-size: .95rem; }
+    .contact-card a { font-size: 1.1rem; font-weight: 600; }
+
+    /* ===== FOOTER ===== */
+    .footer { text-align: center; padding: 32px 24px; color: var(--clr-muted); font-size: .85rem; border-top: 1px solid rgba(78,205,196,.08); }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav__links { display: none; }
+      .nav__burger { display: flex; }
+      .nav__links.active {
+        display: flex; flex-direction: column; position: absolute;
+        top: 64px; left: 0; right: 0; background: rgba(15,26,15,.97);
+        padding: 24px; gap: 20px; border-bottom: 1px solid rgba(78,205,196,.1);
+      }
+      .hero h1 { font-size: 2rem; }
+      section { padding: 60px 0; }
+      .budget-table { font-size: .85rem; }
+      .budget-table thead th, .budget-table tbody td { padding: 10px 12px; }
+      .budget-total { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== NAVIGATION ========== -->
+<nav class="nav">
+  <div class="container nav__inner">
+    <div class="nav__logo">🕉 Дхарма Алтая</div>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">О проекте</a></li>
+      <li><a href="#infra">Инфраструктура</a></li>
+      <li><a href="#retreats">Ретриты</a></li>
+      <li><a href="#budget">Бюджет</a></li>
+      <li><a href="#investors">Инвесторам</a></li>
+      <li><a href="#team">Команда</a></li>
+      <li><a href="#contact">Контакт</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<header class="hero">
+  <div class="hero__content">
+    <span class="hero__tag">Эко-культурный центр</span>
+    <h1>Дхарма <span>Алтая</span></h1>
+    <p class="hero__sub">
+      Пространство для духовного развития, природного созерцания
+      и восстановления — у подножия горы Белухи.
+    </p>
+    <div class="hero__cta">
+      <a href="#investors" class="btn btn--primary">Инвесторам</a>
+      <a href="#team" class="btn btn--outline">Стать частью команды</a>
+    </div>
+  </div>
+  <div class="scroll-hint">↓</div>
+</header>
+
+<!-- ========== ABOUT ========== -->
+<section id="about">
+  <div class="container">
+    <div class="section__center">
+      <span class="section__tag">Концепция</span>
+      <h2 class="section__title">Эко-культурный центр у Белухи</h2>
+      <p class="section__desc">
+        Межконфессиональное пространство для практик, обучения и
+        восстановления. Без религии — с уважением ко всем традициям.
+      </p>
+    </div>
+    <div class="grid-2">
+      <div class="card fade-up"><div class="card__icon">🌿</div><h3>Экология</h3><p>Чистая энергия, солнечные панели, переработка, органическое земледелие, минимальный экослед.</p></div>
+      <div class="card fade-up"><div class="card__icon">🧘</div><h3>Практики</h3><p>Медитация, йога, дыхательные и телесные практики в атмосфере горной тишины.</p></div>
+      <div class="card fade-up"><div class="card__icon">🤝</div><h3>Межконфессиональность</h3><p>Открыто для всех традиций. Никакой догматики — только опыт, уважение и диалог.</p></div>
+      <div class="card fade-up"><div class="card__icon">📚</div><h3>Обучение</h3><p>Лекции, семинары по осознанности, экологичному образу жизни и традиционным ремёслам.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INFRASTRUCTURE ========== -->
+<section id="infra">
+  <div class="container">
+    <span class="section__tag">Инфраструктура</span>
+    <h2 class="section__title">Что будет построено</h2>
+    <p class="section__desc">Камерный комплекс из эко-материалов, органично вписанный в ландшафт.</p>
+    <div class="grid-3">
+      <div class="card infra-card fade-up">
+        <img class="infra-card__img" src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=80" alt="Главный корпус">
+        <div class="infra-card__body">          <span class="infra-card__badge">Основа</span><h3>Главный корпус</h3>
+          <p>Зал практик, библиотека, кухня, столовая, администрация.</p>
+          <ul><li>Зал — 120 м²</li><li>Лекторий — 60 м²</li><li>Столовая на 30 гостей</li></ul>
+        </div>
+      </div>
+      <div class="card infra-card fade-up">
+        <img class="infra-card__img" src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?w=800&q=80" alt="Гостевые домики">
+        <div class="infra-card__body">
+          <span class="infra-card__badge">Проживание</span><h3>Эко-домики</h3>
+          <p>4–6 модульных домиков для 20–30 гостей одновременно.</p>
+          <ul><li>Автономное отопление</li><li>Панорамные виды</li><li>Натуральные материалы</li></ul>
+        </div>
+      </div>
+      <div class="card infra-card fade-up">
+        <img class="infra-card__img" src="https://images.unsplash.com/photo-1554995207-c18c203602cb?w=800&q=80" alt="Банный комплекс">
+        <div class="infra-card__body">
+          <span class="infra-card__badge">Баня</span><h3>Банный комплекс</h3>
+          <p>Русская баня на дровах с выходом к реке. Место восстановления и тишины.</p>
+          <ul><li>Парная на 8–10 чел.</li><li>Купель / река</li><li>Комната отдыха</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== RETREATS ========== -->
+<section id="retreats">
+  <div class="container">
+    <div class="section__center">
+      <span class="section__tag">Программы</span>
+      <h2 class="section__title">Ретриты и программы</h2>
+      <p class="section__desc">Разные форматы — от одного дня до нескольких недель. Всё включено.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">3–7 дней</span><h3>🧘 Йога-ретрит</h3><p>Хатха-йога, пранаяма, медитация, лекции, прогулки.</p><span class="retreat-card__price">от 18 000 ₽</span></div>
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">5–14 дней</span><h3>🔇 Ретрит тишины</h3><p>Практика молчания, цифровая детоксикация, ведение дневника.</p><span class="retreat-card__price">от 35 000 ₽</span></div>
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">3–5 дней</span><h3>🌿 Эко-ретрит</h3><p>Созерцание, пермакультура, осознанное потребление.</p><span class="retreat-card__price">от 15 000 ₽</span></div>
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">5–10 дней</span><h3>🧖 Банный ретрит</h3><p>Русская баня, травяные веники, обливание, чайные церемонии.</p><span class="retreat-card__price">от 22 000 ₽</span></div>
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">2–3 дня</span><h3>👨‍👩‍👧 Семейный</h3><p>Совместные практики, детские мастер-классы, природные игры.</p><span class="retreat-card__price">от 25 000 ₽ / семья</span></div>
+      <div class="card retreat-card fade-up"><span class="retreat-card__duration">7–21 день</span><h3>🏔️ Глубинный</h3><p>Комплексная программа: йога, баня, тишина, лекции. Полная перезагрузка.</p><span class="retreat-card__price">от 60 000 ₽</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BUDGET ========== -->
+<section id="budget">
+  <div class="container">
+    <div class="section__center">
+      <span class="section__tag">Инвестиции</span>
+      <h2 class="section__title">Бюджет проекта</h2>      <p class="section__desc">Прозрачная структура расходов. Поэтапное вложение — минимум рисков.</p>
+    </div>
+    <table class="budget-table fade-up">
+      <thead><tr><th>Статья расходов</th><th>Описание</th><th style="text-align:right">Сумма</th></tr></thead>
+      <tbody>
+        <tr><td>Земельный участок</td><td>Покупка / аренда земли у Белухи (2–3 Га)</td><td class="amount">4 000 000 ₽</td></tr>
+        <tr><td>Проектирование</td><td>Архитектура, геология, экология, разрешения</td><td class="amount">1 500 000 ₽</td></tr>
+        <tr><td>Главный корпус</td><td>Зал, библиотека, кухня, столовая, админ</td><td class="amount">7 000 000 ₽</td></tr>
+        <tr><td>Гостевые домики</td><td>4–6 эко-модулей (20–30 мест)</td><td class="amount">5 000 000 ₽</td></tr>
+        <tr><td>Банный комплекс</td><td>Русская баня, купель, комната отдыха</td><td class="amount">2 500 000 ₽</td></tr>
+        <tr><td>Инженерные системы</td><td>Солнечные панели, септик, вода, генератор</td><td class="amount">3 000 000 ₽</td></tr>
+        <tr><td>Благоустройство</td><td>Дорожки, парковка, освещение, огород</td><td class="amount">2 000 000 ₽</td></tr>
+        <tr><td>Оснащение</td><td>Мебель, утварь, оборудование для практик</td><td class="amount">1 500 000 ₽</td></tr>
+        <tr><td>Маркетинг и запуск</td><td>Сайт, продвижение, первые программы</td><td class="amount">1 500 000 ₽</td></tr>
+        <tr><td>Резерв</td><td>Непредвиденные расходы, операционка 3–6 мес.</td><td class="amount">2 000 000 ₽</td></tr>
+      </tbody>
+    </table>
+    <div class="budget-total fade-up">
+      <span>Общий бюджет проекта</span>
+      <strong>30 000 000 ₽</strong>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INVESTORS ========== -->
+<section id="investors" style="background: var(--clr-surface);">
+  <div class="container">
+    <div class="section__center">
+      <span class="section__tag">Партнёрство</span>
+      <h2 class="section__title">Уровни инвестирования</h2>
+      <p class="section__desc">Выберите формат участия. Все условия фиксируются договором. Проект рассчитан на окупаемость 3–5 лет.</p>
+    </div>
+    <div class="grid-3">
+      <div class="investor-card fade-up">
+        <span class="investor-card__level">Уровень I</span>
+        <div class="investor-card__sum">500 000 – 2 000 000 ₽</div>
+        <div class="investor-card__return">Возврат + 4–6% годовых</div>
+        <ul>
+          <li>Фиксированный возврат с 3-го года</li>
+          <li>10 дней проживания в год бесплатно</li>
+          <li>Имя на доске почёта центра</li>
+          <li>Приоритетное бронирование ретритов</li>
+        </ul>
+      </div>
+      <div class="investor-card fade-up">
+        <span class="investor-card__level">Уровень II</span>
+        <div class="investor-card__sum">2 000 000 – 8 000 000 ₽</div>
+        <div class="investor-card__return">Доля в прибыли: 5–8%</div>
+        <ul>
+          <li>Ежеквартальные отчёты и дивиденды</li>          <li>30 дней проживания в год + гостевые квоты</li>
+          <li>Участие в консультативном совете</li>
+          <li>Возможность софинансирования программ</li>
+        </ul>
+      </div>
+      <div class="investor-card fade-up">
+        <span class="investor-card__level">Уровень III</span>
+        <div class="investor-card__sum">8 000 000 – 15 000 000 ₽+</div>
+        <div class="investor-card__return">Доля в уставном капитале: 8–12%</div>
+        <ul>
+          <li>Полноправный соучредитель (ООО/НКО)</li>
+          <li>Стратегическое голосование, аудит</li>
+          <li>Право наименования объекта (банный дом, зал)</li>
+          <li>Безлимитное проживание для инвестора</li>
+        </ul>
+      </div>
+    </div>
+    <p class="investor-note fade-up">
+      * Финансовые показатели рассчитаны на основе средних цен экотуризма в Республике Алтай. 
+      Договоры оформляются через нотариуса с прозрачной отчётностью. Окупаемость — 3–5 лет.
+    </p>
+  </div>
+</section>
+
+<!-- ========== TEAM ========== -->
+<section id="team">
+  <div class="container">
+    <div class="section__center">
+      <span class="section__tag">Команда</span>
+      <h2 class="section__title">Ищем единомышленников</h2>
+      <p class="section__desc">
+        На старте проекта критически важна сильная команда. 
+        Если вы разделяете ценности осознанности, экологии и служения — мы ждём вас.
+      </p>
+    </div>
+    <div class="grid-2">
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">⚖️</div>
+          <div>
+            <h4>Юрист</h4>
+            <p>Регистрация НКО/ООО, земельные вопросы, договоры, экологическое законодательство.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">💻</div>
+          <div>
+            <h4>IT-специалист / Разработчик</h4>            <p>Сайт, CRM, автоматизация бронирований, оплата, внутренняя база данных.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">📐</div>
+          <div>
+            <h4>Архитектор / Инженер</h4>
+            <p>Эко-проектирование, автономные системы, согласование с подрядчиками.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">📢</div>
+          <div>
+            <h4>Маркетолог / PR</h4>
+            <p>Продвижение центра, работа с аудиторией, контент, партнёрства.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">🔧</div>
+          <div>
+            <h4>Хозяйственник / Управляющий</h4>
+            <p>Организация быта, логистика, закупки, контроль строительства и эксплуатации.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card fade-up">
+        <div class="team-role">
+          <div class="team-role__icon">🌱</div>
+          <div>
+            <h4>Волонтёры и специалисты</h4>
+            <p>Помощь на старте, обмен навыками, проживание, участие в первых ретритах.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PHILOSOPHY ========== -->
+<section class="philosophy">
+  <div class="container">
+    <blockquote class="fade-up">
+      Служение Дхарме — не в словах, а в тишине гор, в чистоте рук,
+      в заботе о каждом, кто переступает порог.      Мы строим не храм, а дом.
+    </blockquote>
+    <cite class="fade-up">— Bholanada, основатель проекта</cite>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" style="background: var(--clr-surface);">
+  <div class="container">
+    <span class="section__tag">Связаться</span>
+    <h2 class="section__title">Присоединяйтесь</h2>
+    <p class="section__desc" style="margin-left:auto;margin-right:auto;">
+      Ищем партнёров, инвесторов и единомышленников.
+      Напишите или позвоните — обсудим детали.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-card fade-up">
+        <h3>📧 Email</h3>
+        <p><a href="mailto:Bholanada@yandex.ru">Bholanada@yandex.ru</a></p>
+      </div>
+      <div class="contact-card fade-up">
+        <h3>📞 Телефон</h3>
+        <p><a href="tel:+79273678123">+7 (927) 367-81-23</a></p>
+      </div>
+      <div class="contact-card fade-up">
+        <h3>🏔️ Локация</h3>
+        <p>Республика Алтай,<br>район горы Белуха</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <p>© 2026 Дхарма Алтая — Эко-культурный центр. Все права защищены.</p>
+</footer>
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+  // --- Mobile menu ---
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('active'));
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+  // --- Scroll animations ---
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // --- Smooth scroll ---
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - 80, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
