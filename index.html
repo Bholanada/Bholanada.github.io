@@ -26,16 +26,23 @@
         .nav-links a:hover { color: #d4af37; }
 
         .hero { 
-            background: linear-gradient(rgba(15,41,30,0.85), rgba(26,77,26,0.85)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a4d1a" width="1200" height="600"/><path fill="%232d6b2d" d="M0 400 Q300 350 600 400 T1200 400 V600 H0 Z"/><circle fill="%234a9c6f" cx="200" cy="300" r="80"/><circle fill="%234a9c6f" cx="800" cy="250" r="100"/></svg>'); 
-            background-size: cover; 
-            background-position: center; 
-            color: white; 
-            padding: 180px 0 120px; 
-            text-align: center; 
-            margin-top: 70px;
-            border-bottom: 5px solid #d4af37;
-        }
+    background: linear-gradient(135deg, #0f291e 0%, #1a4d1a 40%, #2d6b2d 100%);
+    color: white; 
+    padding: 180px 0 120px; 
+    text-align: center; 
+    margin-top: 70px;
+    border-bottom: 5px solid #d4af37;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(74, 156, 111, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
+    pointer-events: none;
+}
         .hero h1 { font-size: 3.2em; margin-bottom: 25px; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); color: #f0f4f0; }
         .hero p { font-size: 1.4em; margin-bottom: 35px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; }
         .hero-highlight { 
