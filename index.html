@@ -10,7 +10,7 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         header { 
-            background: linear-gradient(135deg, #1a4d1a 0%, #0f291e 100%); 
+            background: #0f291e; 
             color: white; 
             padding: 20px 0; 
             position: fixed; 
@@ -26,27 +26,31 @@
         .nav-links a:hover { color: #d4af37; }
 
         .hero { 
-    background: linear-gradient(135deg, #0f291e 0%, #1a4d1a 40%, #2d6b2d 100%);
-    color: white; 
-    padding: 180px 0 120px; 
-    text-align: center; 
-    margin-top: 70px;
-    border-bottom: 5px solid #d4af37;
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(circle at 20% 50%, rgba(74, 156, 111, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
-    pointer-events: none;
-}
-        .hero h1 { font-size: 3.2em; margin-bottom: 25px; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); color: #f0f4f0; }
-        .hero p { font-size: 1.4em; margin-bottom: 35px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+            background: #0a1f15;
+            color: white; 
+            padding: 180px 0 120px; 
+            text-align: center; 
+            margin-top: 70px;
+            border-bottom: 5px solid #d4af37;
+        }
+        .hero h1 { 
+            font-size: 3.2em; 
+            margin-bottom: 25px; 
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        }
+        .hero p { 
+            font-size: 1.4em; 
+            margin-bottom: 35px; 
+            color: #f0f4f0;
+            max-width: 900px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            line-height: 1.8;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
         .hero-highlight { 
-            background: rgba(212, 175, 55, 0.2); 
+            background: rgba(212, 175, 55, 0.15); 
             padding: 20px 40px; 
             border-radius: 15px; 
             border: 2px solid #d4af37;
@@ -54,10 +58,11 @@
             margin: 20px 0;
             font-size: 1.2em;
             font-weight: 600;
+            color: #f0f4f0;
         }
         .cta-button { 
             display: inline-block; 
-            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); 
+            background: #d4af37; 
             color: #0f291e; 
             padding: 18px 45px; 
             text-decoration: none; 
@@ -90,7 +95,7 @@
         .mission-card p { color: #4a5a4a; line-height: 1.8; }
 
         .vision-box {
-            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%);
+            background: #1a4d1a;
             color: white;
             padding: 50px;
             border-radius: 20px;
@@ -121,7 +126,7 @@
             border: 2px solid #e0e8e0;
         }
         .budget-table th { 
-            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            background: #1a4d1a; 
             color: white; 
             padding: 18px 15px; 
             text-align: left;
@@ -130,7 +135,7 @@
         .budget-table td { padding: 16px 15px; border-bottom: 1px solid #e8f0e8; }
         .budget-table tr:hover { background: #f5faf5; }
         .budget-table .total-row { 
-            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); 
+            background: #d4af37; 
             color: #0f291e; 
             font-weight: bold; 
             font-size: 1.3em;
@@ -153,7 +158,7 @@
         .module-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.15); }
         .module-image { 
             height: 200px; 
-            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            background: #1a4d1a; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
@@ -215,7 +220,7 @@
         }
         .form-group textarea { resize: vertical; min-height: 130px; }
         .submit-button { 
-            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            background: #1a4d1a; 
             color: white; 
             padding: 18px 45px; 
             border: none; 
@@ -233,7 +238,7 @@
         }
 
         footer { 
-            background: linear-gradient(135deg, #0f291e 0%, #1a4d1a 100%); 
+            background: #0f291e; 
             color: #f0f4f0; 
             text-align: center; 
             padding: 50px 0;
@@ -280,7 +285,7 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo"> Дхарма Алтая</div>
+            <div class="logo">🎵 Дхарма Алтая</div>
             <ul class="nav-links">
                 <li><a href="#mission">Миссия</a></li>
                 <li><a href="#vision">Видение</a></li>
@@ -299,7 +304,7 @@
                 Центр звука, мудрости и созидания на берегах священной Катуни
             </p>
             <div class="hero-highlight animate">
-                 Через музыку и мультфильмы мы изменим <span style="color: #d4af37; font-size: 1.3em;">миллиарды жизней</span>
+                Через музыку и мультфильмы мы изменим <span style="color: #d4af37; font-size: 1.3em;">миллиарды жизней</span>
             </div>
             <br>
             <a href="#participation" class="cta-button animate">Стать соучредителем</a>
@@ -357,7 +362,7 @@
             </p>
             <div class="modules-grid">
                 <div class="module-card">
-                    <div class="module-image"></div>
+                    <div class="module-image">🏠</div>
                     <div class="module-content">
                         <span class="module-tag">ПЕРВООЧЕРЕДНОЕ</span>
                         <h3>Командный жилой модуль</h3>
@@ -367,7 +372,7 @@
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image"></div>
+                    <div class="module-image">🎧</div>
                     <div class="module-content">
                         <span class="module-tag">ДЛЯ ГОСТЕЙ</span>
                         <h3>Гостевой звукоизолированный домик</h3>
@@ -387,7 +392,7 @@
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image"></div>
+                    <div class="module-image">🔺</div>
                     <div class="module-content">
                         <span class="module-tag">ПРАКТИКИ</span>
                         <h3>Пирамида для медитаций</h3>
@@ -407,7 +412,7 @@
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image"></div>
+                    <div class="module-image">🧖</div>
                     <div class="module-content">
                         <span class="module-tag">ОЗДОРОВЛЕНИЕ</span>
                         <h3>Баня на дровах</h3>
@@ -478,7 +483,7 @@
                         <td>2 000 000 ₽</td>
                     </tr>
                     <tr class="category-row">
-                        <td colspan="4"> ПРАКТИКИ И МЕДИТАЦИИ</td>
+                        <td colspan="4">🧘 ПРАКТИКИ И МЕДИТАЦИИ</td>
                     </tr>
                     <tr>
                         <td>Пирамида для медитаций</td>
@@ -493,7 +498,7 @@
                         <td>800 000 ₽</td>
                     </tr>
                     <tr class="category-row">
-                        <td colspan="4"> ОЗДОРОВЛЕНИЕ</td>
+                        <td colspan="4">🧖 ОЗДОРОВЛЕНИЕ</td>
                     </tr>
                     <tr>
                         <td>Баня на дровах</td>
@@ -541,7 +546,7 @@
                         <td>800 000 ₽</td>
                     </tr>
                     <tr class="category-row">
-                        <td colspan="4">️ БЕЗОПАСНОСТЬ ПРОЕКТА</td>
+                        <td colspan="4">🛡️ БЕЗОПАСНОСТЬ ПРОЕКТА</td>
                     </tr>
                     <tr>
                         <td><strong>Резервный фонд (10% на непредвиденные расходы)</strong></td>
@@ -600,7 +605,7 @@
                     </ul>
                 </div>
                 <div class="participation-card">
-                    <h3> Для партнёров</h3>
+                    <h3>🤝 Для партнёров</h3>
                     <p>Профессионалы, готовые внести свой вклад навыками и опытом.</p>
                     <ul>
                         <li>Музыканты и звукоинженеры</li>
@@ -669,11 +674,11 @@
             <p style="font-size: 1.1em; margin-bottom: 10px;">&copy; 2026 Дхарма Алтая. Центр звука и созидания.</p>
             <p>Берега реки Катунь, Республика Алтай</p>
             <p style="margin-top: 25px; font-size: 0.95em;">
-                <a href="mailto:bholanadaya.ru">bholanada@ya.ru</a> | 
+                <a href="mailto:bholanada@ya.ru">bholanada@ya.ru</a> | 
                 <a href="https://t.me/bholanada">Telegram</a>
             </p>
             <p style="margin-top: 20px; font-style: italic; color: #d4af37;">
-                 Меняем миллиарды жизней через музыку и мудрость
+                🌍 Меняем миллиарды жизней через музыку и мудрость
             </p>
         </div>
     </footer>
