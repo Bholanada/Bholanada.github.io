@@ -6,71 +6,267 @@
     <title>Дхарма Алтая - Центр звука и созидания</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f5f5f0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e2d; background: #f0f4f0; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        header { background: linear-gradient(135deg, #2c5f2d 0%, #1a4d1a 100%); color: white; padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        header { 
+            background: linear-gradient(135deg, #1a4d1a 0%, #0f291e 100%); 
+            color: white; 
+            padding: 20px 0; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5em; font-weight: bold; }
+        .logo { font-size: 1.5em; font-weight: bold; color: #d4af37; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { color: white; text-decoration: none; transition: opacity 0.3s; }
-        .nav-links a:hover { opacity: 0.8; }
+        .nav-links a { color: #f0f4f0; text-decoration: none; transition: color 0.3s; font-weight: 500; }
+        .nav-links a:hover { color: #d4af37; }
 
-        .hero { background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a7c59" width="1200" height="600"/><path fill="%235a9c69" d="M0 400 Q300 350 600 400 T1200 400 V600 H0 Z"/><circle fill="%237bc47f" cx="200" cy="300" r="80"/><circle fill="%237bc47f" cx="800" cy="250" r="100"/></svg>'); background-size: cover; background-position: center; color: white; padding: 150px 0 100px; text-align: center; margin-top: 70px; }
-        .hero h1 { font-size: 3em; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.3em; margin-bottom: 30px; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); }
-        .cta-button { display: inline-block; background: #d4af37; color: #1a4d1a; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1em; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5); }
+        .hero { 
+            background: linear-gradient(rgba(15,41,30,0.85), rgba(26,77,26,0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%231a4d1a" width="1200" height="600"/><path fill="%232d6b2d" d="M0 400 Q300 350 600 400 T1200 400 V600 H0 Z"/><circle fill="%234a9c6f" cx="200" cy="300" r="80"/><circle fill="%234a9c6f" cx="800" cy="250" r="100"/></svg>'); 
+            background-size: cover; 
+            background-position: center; 
+            color: white; 
+            padding: 180px 0 120px; 
+            text-align: center; 
+            margin-top: 70px;
+            border-bottom: 5px solid #d4af37;
+        }
+        .hero h1 { font-size: 3.2em; margin-bottom: 25px; text-shadow: 3px 3px 6px rgba(0,0,0,0.6); color: #f0f4f0; }
+        .hero p { font-size: 1.4em; margin-bottom: 35px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); max-width: 900px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+        .hero-highlight { 
+            background: rgba(212, 175, 55, 0.2); 
+            padding: 20px 40px; 
+            border-radius: 15px; 
+            border: 2px solid #d4af37;
+            display: inline-block;
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .cta-button { 
+            display: inline-block; 
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); 
+            color: #0f291e; 
+            padding: 18px 45px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.2em; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            border: 2px solid #f0f4f0;
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6); }
 
-        section { padding: 80px 0; }
+        section { padding: 90px 0; }
         section:nth-child(even) { background: white; }
-        h2 { font-size: 2.5em; text-align: center; margin-bottom: 50px; color: #2c5f2d; }
-        h3 { font-size: 1.8em; margin-bottom: 20px; color: #2c5f2d; }
+        section:nth-child(odd):not(.hero) { background: #f8faf8; }
+        h2 { font-size: 2.8em; text-align: center; margin-bottom: 50px; color: #1a4d1a; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); }
+        h3 { font-size: 1.9em; margin-bottom: 20px; color: #1a4d1a; }
 
-        .mission-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px; }
-        .mission-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .mission-card:hover { transform: translateY(-5px); }
-        .mission-card h3 { color: #d4af37; }
+        .mission-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 50px; }
+        .mission-card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            transition: transform 0.3s;
+            border-top: 4px solid #d4af37;
+        }
+        .mission-card:hover { transform: translateY(-8px); }
+        .mission-card h3 { color: #1a4d1a; margin-bottom: 15px; }
+        .mission-card p { color: #4a5a4a; line-height: 1.8; }
 
-        .budget-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-radius: 10px; overflow: hidden; }
-        .budget-table th { background: #2c5f2d; color: white; padding: 15px; text-align: left; }
-        .budget-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .budget-table tr:hover { background: #f9f9f9; }
-        .budget-table .total-row { background: #d4af37; color: #1a4d1a; font-weight: bold; font-size: 1.2em; }
-
-        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .module-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .module-card:hover { transform: translateY(-5px); }
-        .module-image { height: 200px; background: linear-gradient(135deg, #4a7c59 0%, #2c5f2d 100%); display: flex; align-items: center; justify-content: center; font-size: 4em; }
-        .module-content { padding: 25px; }
-        .module-price { font-size: 1.5em; color: #d4af37; font-weight: bold; margin: 15px 0; }
-
-        .participation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .participation-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-left: 5px solid #d4af37; }
-        .participation-card h3 { color: #2c5f2d; margin-bottom: 15px; }
-        .participation-card ul { list-style: none; margin-top: 15px; }
-        .participation-card li { padding: 8px 0; padding-left: 25px; position: relative; }
-        .participation-card li:before { content: "✓"; position: absolute; left: 0; color: #d4af37; font-weight: bold; }
-
-        .contact-form { max-width: 600px; margin: 40px auto; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; color: #2c5f2d; font-weight: bold; }
-        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #d4af37; }
-        .form-group textarea { resize: vertical; min-height: 120px; }
-        .submit-button { background: #2c5f2d; color: white; padding: 15px 40px; border: none; border-radius: 50px; font-size: 1.1em; cursor: pointer; transition: background 0.3s; width: 100%; }
-        .submit-button:hover { background: #1a4d1a; }
-
-        footer { background: #1a4d1a; color: white; text-align: center; padding: 40px 0; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2em; }
-            .nav-links { display: none; } 
-            .budget-table { font-size: 0.85em; }
-            .budget-table th, .budget-table td { padding: 10px; }
+        .vision-box {
+            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 50px 0;
+            text-align: center;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(26, 77, 26, 0.3);
+        }
+        .vision-box h3 { color: #d4af37; font-size: 2.2em; margin-bottom: 25px; }
+        .vision-box p { font-size: 1.25em; line-height: 1.9; max-width: 900px; margin: 0 auto; }
+        .vision-number {
+            font-size: 4em;
+            font-weight: bold;
+            color: #d4af37;
+            display: block;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .budget-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin: 40px 0; 
+            background: white; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            border-radius: 15px; 
+            overflow: hidden;
+            border: 2px solid #e0e8e0;
+        }
+        .budget-table th { 
+            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            color: white; 
+            padding: 18px 15px; 
+            text-align: left;
+            font-weight: 600;
+        }
+        .budget-table td { padding: 16px 15px; border-bottom: 1px solid #e8f0e8; }
+        .budget-table tr:hover { background: #f5faf5; }
+        .budget-table .total-row { 
+            background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%); 
+            color: #0f291e; 
+            font-weight: bold; 
+            font-size: 1.3em;
+        }
+        .budget-table .category-row {
+            background: #f0f7f0;
+            font-weight: 600;
+            color: #1a4d1a;
+        }
+
+        .modules-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 35px; margin-top: 50px; }
+        .module-card { 
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            transition: transform 0.3s;
+            border: 2px solid #e8f0e8;
+        }
+        .module-card:hover { transform: translateY(-8px); box-shadow: 0 12px 35px rgba(0,0,0,0.15); }
+        .module-image { 
+            height: 200px; 
+            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 4.5em;
+            border-bottom: 4px solid #d4af37;
+        }
+        .module-content { padding: 30px; }
+        .module-price { font-size: 1.7em; color: #d4af37; font-weight: bold; margin: 15px 0; }
+        .module-tag {
+            display: inline-block;
+            background: #d4af37;
+            color: #0f291e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .participation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 35px; margin-top: 50px; }
+        .participation-card { 
+            background: white; 
+            padding: 35px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1); 
+            border-left: 6px solid #d4af37;
+            transition: transform 0.3s;
+        }
+        .participation-card:hover { transform: translateX(5px); }
+        .participation-card h3 { color: #1a4d1a; margin-bottom: 15px; }
+        .participation-card ul { list-style: none; margin-top: 20px; }
+        .participation-card li { padding: 10px 0; padding-left: 30px; position: relative; color: #4a5a4a; }
+        .participation-card li:before { content: "✓"; position: absolute; left: 0; color: #d4af37; font-weight: bold; font-size: 1.3em; }
+
+        .contact-form { 
+            max-width: 650px; 
+            margin: 50px auto; 
+            background: white; 
+            padding: 45px; 
+            border-radius: 15px; 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 2px solid #e8f0e8;
+        }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 10px; color: #1a4d1a; font-weight: 600; font-size: 1.05em; }
+        .form-group input, .form-group textarea, .form-group select { 
+            width: 100%; 
+            padding: 14px; 
+            border: 2px solid #d0d8d0; 
+            border-radius: 10px; 
+            font-size: 1em; 
+            transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { 
+            outline: none; 
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+        .form-group textarea { resize: vertical; min-height: 130px; }
+        .submit-button { 
+            background: linear-gradient(135deg, #1a4d1a 0%, #2d6b2d 100%); 
+            color: white; 
+            padding: 18px 45px; 
+            border: none; 
+            border-radius: 50px; 
+            font-size: 1.15em; 
+            cursor: pointer; 
+            transition: transform 0.3s, box-shadow 0.3s; 
+            width: 100%;
+            font-weight: 600;
+            border: 2px solid #d4af37;
+        }
+        .submit-button:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(26, 77, 26, 0.4);
+        }
+
+        footer { 
+            background: linear-gradient(135deg, #0f291e 0%, #1a4d1a 100%); 
+            color: #f0f4f0; 
+            text-align: center; 
+            padding: 50px 0;
+            border-top: 4px solid #d4af37;
+        }
+        footer a { color: #d4af37; text-decoration: none; }
+
+        .roadmap-box {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #e8f0e8;
+        }
+        .roadmap-item {
+            padding: 20px;
+            margin: 15px 0;
+            background: #f8faf8;
+            border-radius: 10px;
+            border-left: 5px solid #d4af37;
+        }
+        .roadmap-item strong { color: #1a4d1a; font-size: 1.15em; }
+        .roadmap-item p { color: #4a5a4a; margin-top: 8px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1.15em; }
+            .nav-links { display: none; }
+            h2 { font-size: 2.2em; }
+            .vision-box { padding: 30px 20px; }
+            .vision-number { font-size: 3em; }
+            .budget-table { font-size: 0.85em; }
+            .budget-table th, .budget-table td { padding: 12px 10px; }
+            .modules-grid, .mission-content, .participation-grid { grid-template-columns: 1fr; }
+        }
+
+        @keyframes fadeInUp { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
         .animate { animation: fadeInUp 0.8s ease-out; }
     </style>
 </head>
@@ -80,6 +276,7 @@
             <div class="logo">🎵 Дхарма Алтая</div>
             <ul class="nav-links">
                 <li><a href="#mission">Миссия</a></li>
+                <li><a href="#vision">Видение</a></li>
                 <li><a href="#modules">Пространство</a></li>
                 <li><a href="#budget">Бюджет</a></li>
                 <li><a href="#participation">Участие</a></li>
@@ -91,7 +288,13 @@
     <section class="hero">
         <div class="container">
             <h1 class="animate">Дхарма Алтая</h1>
-            <p class="animate">Центр звука, мудрости и созидания на берегах священной Катуни</p>
+            <p class="animate">
+                Центр звука, мудрости и созидания на берегах священной Катуни
+            </p>
+            <div class="hero-highlight animate">
+                 Через музыку и мультфильмы мы изменим <span style="color: #d4af37; font-size: 1.3em;">миллиарды жизней</span>
+            </div>
+            <br>
             <a href="#participation" class="cta-button animate">Стать соучредителем</a>
         </div>
     </section>
@@ -99,23 +302,41 @@
     <section id="mission">
         <div class="container">
             <h2>Наша Миссия</h2>
-            <p style="text-align: center; font-size: 1.2em; max-width: 800px; margin: 0 auto 40px;">
-                Мы создаём пространство, где древние музыкальные знания и современные технологии служат пробуждению сознания. 
-                Через звук, визуальный образ и практику мы меняем судьбы людей.
+            <p style="text-align: center; font-size: 1.25em; max-width: 900px; margin: 0 auto 50px; color: #4a5a4a; line-height: 1.8;">
+                Мы создаём пространство, где древние музыкальные знания, звуковая терапия и современные технологии служат пробуждению сознания. 
+                Через звук, визуальный образ и глубокие практики мы трансформируем судьбы людей.
             </p>
             <div class="mission-content">
                 <div class="mission-card">
-                    <h3>🎼 Студия звука</h3>
-                    <p>Профессиональная звукозапись, обучение древним музыкальным традициям, пространство для практик и медитаций.</p>
+                    <h3>🎼 Студия звука и терапии</h3>
+                    <p>Профессиональная звукозапись, обучение древним музыкальным традициям, звуковая терапия (поющие чаши, камертоны, гонги, вина). Отдельные звукоизолированные модули для каждого гостя.</p>
                 </div>
                 <div class="mission-card">
                     <h3>🎬 Анимационная мастерская</h3>
-                    <p>Создание добрых, смысловых мультфильмов для детей и взрослых. Истории, меняющие мировоззрение.</p>
+                    <p>Создание добрых, смысловых мультфильмов для детей и взрослых. Истории, меняющие мировоззрение и несущие свет Дхармы миллиардам людей через интернет.</p>
+                </div>
+                <div class="mission-card">
+                    <h3>🧘 Глубокие практики</h3>
+                    <p>Тёмные ретриты (сенсорная депривация), медитации в пирамиде, групповые практики. Полная изоляция для глубокой внутренней работы.</p>
                 </div>
                 <div class="mission-card">
                     <h3>🏡 Устойчивое сообщество</h3>
-                    <p>Гармоничные модули для жизни и творчества команды и гостей. Природные материалы, акустический комфорт, единение с природой Катуни.</p>
+                    <p>Гармоничные модули для жизни и творчества команды и гостей. Баня, бассейн, кухня-столовая. Природные материалы, акустический комфорт, единение с природой Катуни.</p>
                 </div>
+            </div>
+
+            <div class="vision-box">
+                <h3> Наше Видение</h3>
+                <p>
+                    Мы верим, что <strong>звук и образ</strong> — это самые мощные инструменты трансформации сознания. 
+                    Создавая музыку, которая исцеляет, и мультфильмы, которые несут мудрость, мы запускаем цепную реакцию изменений.
+                </p>
+                <span class="vision-number">1 000 000 000+</span>
+                <p>
+                    <strong>Наша цель — изменить миллиарды жизней</strong> через доступный контент, 
+                    который будет распространяться по всему миру. Каждый мультфильм, каждая песня, 
+                    каждая практика — это семя, которое прорастёт в сознании миллионов людей.
+                </p>
             </div>
         </div>
     </section>
@@ -123,46 +344,89 @@
     <section id="modules">
         <div class="container">
             <h2>Архитектура Центра</h2>
-            <p style="text-align: center; font-size: 1.1em; max-width: 800px; margin: 0 auto 40px;">
-                Мы начинаем с создания надёжной «Базы» для команды, чтобы затем качественно принимать гостей. 
-                Каждый модуль автономен и экологичен.
+            <p style="text-align: center; font-size: 1.15em; max-width: 900px; margin: 0 auto 50px; color: #4a5a4a;">
+                Мы начинаем с создания надёжной «Базы» для команды, затем строим пространство для гостей. 
+                Каждый модуль автономен, экологичен и наполнен смыслом.
             </p>
             <div class="modules-grid">
                 <div class="module-card">
                     <div class="module-image">🏠</div>
                     <div class="module-content">
-                        <h3>Командный жилой модуль (База)</h3>
-                        <p>Первый и главный модуль. Пространство для жизни основателя и ключевой команды (3-4 чел.). Включает кухню, спальни, санузел и <strong>рабочую зону для анимации и управления проектом</strong>.</p>
-                        <div class="module-price">1 800 000 ₽</div>
-                        <p><strong>Площадь:</strong> 80 м²</p>
+                        <span class="module-tag">ПЕРВООЧЕРЕДНОЕ</span>
+                        <h3>Командный жилой модуль</h3>
+                        <p>Пространство для жизни основателя и ключевой команды (3-4 чел.). Кухня, спальни, санузел, <strong>рабочая зона для анимации</strong>.</p>
+                        <div class="module-price">2 800 000 ₽</div>
+                        <p><strong>Площадь:</strong> 100 м²</p>
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image">🎧</div>
+                    <div class="module-image"></div>
                     <div class="module-content">
+                        <span class="module-tag">ДЛЯ ГОСТЕЙ</span>
                         <h3>Гостевой звукоизолированный домик</h3>
-                        <p>Отдельный модуль для проживания и записи музыки гостей. Профессиональная звукоизоляция позволяет творить в любое время, не мешая другим.</p>
+                        <p>Отдельный модуль для проживания и записи музыки. Профессиональная звукоизоляция, базовое оборудование.</p>
                         <div class="module-price">950 000 ₽</div>
-                        <p><strong>Площадь:</strong> 35 м²</p>
-                        <p><strong>Количество:</strong> 4 шт.</p>
+                        <p><strong>Площадь:</strong> 35 м² | <strong>Количество:</strong> 4 шт.</p>
                     </div>
                 </div>
                 <div class="module-card">
                     <div class="module-image">🎙️</div>
                     <div class="module-content">
+                        <span class="module-tag">СТУДИЯ</span>
                         <h3>Профессиональная студия</h3>
-                        <p>Полноценная студия звукозаписи с профессиональным оборудованием, акустической обработкой и пультом сведения.</p>
+                        <p>Полноценная студия звукозаписи с профессиональным оборудованием, акустической обработкой, пультом сведения.</p>
                         <div class="module-price">1 800 000 ₽</div>
                         <p><strong>Площадь:</strong> 60 м²</p>
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image">🧘</div>
+                    <div class="module-image"></div>
                     <div class="module-content">
-                        <h3>Зал практик (купольный)</h3>
-                        <p>Купольная конструкция для групповых практик, медитаций и звуковых церемоний. Идеальная естественная акустика.</p>
+                        <span class="module-tag">ПРАКТИКИ</span>
+                        <h3>Пирамида для медитаций</h3>
+                        <p>Сакральная геометрия для глубоких медитаций, энергетических практик, групповых церемоний. Уникальная акустика.</p>
+                        <div class="module-price">1 500 000 ₽</div>
+                        <p><strong>Площадь:</strong> 50 м² | <strong>Вместимость:</strong> до 15 чел.</p>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-image">🌑</div>
+                    <div class="module-content">
+                        <span class="module-tag">РЕТРИТ</span>
+                        <h3>Комната сенсорной депривации</h3>
+                        <p>Полная изоляция (темнота, тишина) для глубокой внутренней работы, перезагрузки сознания, духовных практик.</p>
+                        <div class="module-price">600 000 ₽</div>
+                        <p><strong>Площадь:</strong> 12 м² | <strong>Звукоизоляция:</strong> максимальная</p>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-image"></div>
+                    <div class="module-content">
+                        <span class="module-tag">ОЗДОРОВЛЕНИЕ</span>
+                        <h3>Баня на дровах</h3>
+                        <p>Традиционная алтайская баня с парной, зоной отдыха и обливания. Место для очищения тела и духа.</p>
+                        <div class="module-price">800 000 ₽</div>
+                        <p><strong>Площадь:</strong> 30 м² | <strong>Вместимость:</strong> 6-8 чел.</p>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-image">🏊</div>
+                    <div class="module-content">
+                        <span class="module-tag">ОЗДОРОВЛЕНИЕ</span>
+                        <h3>Природный бассейн</h3>
+                        <p>Естественный бассейн с фильтрацией через растения, подогревом. Единение с водой и природой.</p>
                         <div class="module-price">1 200 000 ₽</div>
-                        <p><strong>Площадь:</strong> 50 м²</p>
+                        <p><strong>Размер:</strong> 6×4 м | <strong>Глубина:</strong> до 1.8 м</p>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-image">🍽️</div>
+                    <div class="module-content">
+                        <span class="module-tag">ИНФРАСТРУКТУРА</span>
+                        <h3>Кухня-столовая</h3>
+                        <p>Просторное помещение для приготовления пищи и совместных трапез. Профессиональное оборудование, зона для вегетарианской кухни.</p>
+                        <div class="module-price">1 000 000 ₽</div>
+                        <p><strong>Площадь:</strong> 50 м² | <strong>Вместимость:</strong> до 15 чел.</p>
                     </div>
                 </div>
             </div>
@@ -172,7 +436,7 @@
     <section id="budget">
         <div class="container">
             <h2>Бюджет Первого Этапа</h2>
-            <p style="text-align: center; font-size: 1.1em; max-width: 800px; margin: 0 auto 40px;">
+            <p style="text-align: center; font-size: 1.15em; max-width: 900px; margin: 0 auto 50px; color: #4a5a4a;">
                 Прозрачная смета. Все средства идут на создание физической инфраструктуры центра.
             </p>
             <table class="budget-table">
@@ -185,11 +449,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="category-row">
+                        <td colspan="4">🏠 ЖИЛЫЕ И РАБОЧИЕ МОДУЛИ</td>
+                    </tr>
                     <tr>
                         <td>Командный жилой модуль (База)</td>
                         <td>1 шт</td>
-                        <td>1 800 000 ₽</td>
-                        <td>1 800 000 ₽</td>
+                        <td>2 800 000 ₽</td>
+                        <td>2 800 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Гостевые звукоизолированные домики</td>
@@ -203,17 +470,44 @@
                         <td>1 800 000 ₽</td>
                         <td>1 800 000 ₽</td>
                     </tr>
+                    <tr class="category-row">
+                        <td colspan="4">🧘 ПРАКТИКИ И МЕДИТАЦИИ</td>
+                    </tr>
                     <tr>
-                        <td>Зал практик (купольный модуль)</td>
+                        <td>Пирамида для медитаций</td>
+                        <td>1 шт</td>
+                        <td>1 500 000 ₽</td>
+                        <td>1 500 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Комната сенсорной депривации (тёмный ретрит)</td>
+                        <td>1 шт</td>
+                        <td>600 000 ₽</td>
+                        <td>600 000 ₽</td>
+                    </tr>
+                    <tr class="category-row">
+                        <td colspan="4">🧖 ОЗДОРОВЛЕНИЕ</td>
+                    </tr>
+                    <tr>
+                        <td>Баня на дровах</td>
+                        <td>1 шт</td>
+                        <td>800 000 ₽</td>
+                        <td>800 000 ₽</td>
+                    </tr>
+                    <tr>
+                        <td>Природный бассейн с подогревом</td>
                         <td>1 шт</td>
                         <td>1 200 000 ₽</td>
                         <td>1 200 000 ₽</td>
                     </tr>
+                    <tr class="category-row">
+                        <td colspan="4">️ ИНФРАСТРУКТУРА</td>
+                    </tr>
                     <tr>
-                        <td><strong>ИТОГО модули</strong></td>
-                        <td><strong>7 шт</strong></td>
-                        <td>-</td>
-                        <td><strong>8 600 000 ₽</strong></td>
+                        <td>Кухня-столовая</td>
+                        <td>1 шт</td>
+                        <td>1 000 000 ₽</td>
+                        <td>1 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Инфраструктура (вода, септик, электричество, дороги)</td>
@@ -222,10 +516,10 @@
                         <td>1 500 000 ₽</td>
                     </tr>
                     <tr>
-                        <td>Оборудование (звук, ПК для анимации, мебель)</td>
+                        <td>Оборудование (звук, ПК для анимации, мебель, бытовая техника)</td>
                         <td>-</td>
                         <td>-</td>
-                        <td>1 000 000 ₽</td>
+                        <td>1 200 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Земля и юридические вопросы</td>
@@ -235,19 +529,35 @@
                     </tr>
                     <tr class="total-row">
                         <td colspan="3"><strong>ОБЩИЙ БЮДЖЕТ ПЕРВОГО ЭТАПА</strong></td>
-                        <td><strong>11 600 000 ₽</strong></td>
+                        <td><strong>19 100 000 ₽</strong></td>
                     </tr>
                 </tbody>
             </table>
-            <div style="background: #f0f7f0; padding: 30px; border-radius: 15px; margin-top: 30px; border: 1px solid #2c5f2d;">
-                <h3 style="color: #2c5f2d; margin-bottom: 15px;">💡 Реалистичная стратегия запуска:</h3>
-                <p>Не нужно собирать всю сумму сразу. Мы идём пошагово:</p>
-                <ul style="list-style: none; margin-top: 15px; line-height: 1.8;">
-                    <li><strong>Шаг 1 (Цель: 150 000 ₽):</strong> Сайт, экспедиция на Катунь, бронирование/покупка земли.</li>
-                    <li><strong>Шаг 2 (Цель: 2 500 000 ₽):</strong> Строительство <em>Командного модуля</em> и базовой инфраструктуры (скважина, свет). Команда заезжает и начинает работать.</li>
-                    <li><strong>Шаг 3 (Цель: 4 000 000 ₽):</strong> Строительство 2 гостевых домиков и Студии. Запуск первых платных программ.</li>
-                    <li><strong>Шаг 4:</strong> Достройка оставшихся модулей на доходы от деятельности и гранты.</li>
-                </ul>
+            <div class="roadmap-box">
+                <h3 style="color: #1a4d1a; margin-bottom: 25px; text-align: center;">💡 Реалистичная стратегия запуска (поэтапно)</h3>
+                <div class="roadmap-item">
+                    <strong>Шаг 1 (Цель: 500 000 ₽):</strong>
+                    <p>Сайт, экспедиция на Катунь, поиск и бронирование земли.</p>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Шаг 2 (Цель: 2 500 000 ₽):</strong>
+                    <p>Строительство <em>Командного модуля</em> и базовой инфраструктуры (скважина, свет, септик). Команда заезжает и начинает работать над анимацией.</p>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Шаг 3 (Цель: 4 500 000 ₽):</strong>
+                    <p>Строительство 2 гостевых домиков, Студии, Кухни-столовой. Запуск первых платных программ и ретритов.</p>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Шаг 4 (Цель: 5 000 000 ₽):</strong>
+                    <p>Пирамида, баня, бассейн, комната сенсорной депривации. Полноценный запуск центра.</p>
+                </div>
+                <div class="roadmap-item">
+                    <strong>Шаг 5 (Цель: 4 550 000 ₽):</strong>
+                    <p>Завершение всех гостевых домиков, дополнительное оборудование. Выход на полную мощность.</p>
+                </div>
+                <p style="text-align: center; margin-top: 25px; color: #4a5a4a; font-style: italic;">
+                    Не нужно собирать всю сумму сразу. Двигаемся поэтапно, запуская каждый модуль по мере готовности.
+                </p>
             </div>
         </div>
     </section>
@@ -258,28 +568,35 @@
             <div class="participation-grid">
                 <div class="participation-card">
                     <h3>💰 Для инвесторов</h3>
-                    <p>Финансовое участие с прозрачной отчётностью.</p>
+                    <p>Финансовое участие с прозрачной отчётностью и возможностью именного спонсорства.</p>
                     <ul>
                         <li>Именное спонсорство модулей</li>
                         <li>Ежемесячные отчёты о прогрессе</li>
-                        <li>Бессрочное бесплатное проживание (опция)</li>
+                        <li>Приглашение на открытие центра</li>
+                        <li>Бессрочное бесплатное проживание (от 500 000 ₽)</li>
+                        <li>Участие в стратегических решениях</li>
                     </ul>
                 </div>
                 <div class="participation-card">
                     <h3>🤝 Для партнёров</h3>
-                    <p>Профессионалы, готовые внести свой вклад навыками.</p>
+                    <p>Профессионалы, готовые внести свой вклад навыками и опытом.</p>
                     <ul>
                         <li>Музыканты и звукоинженеры</li>
                         <li>Аниматоры и художники</li>
-                        <li>Обмен навыков на проживание в Командном модуле</li>
+                        <li>Архитекторы и строители</li>
+                        <li>Преподаватели и практики</li>
+                        <li>Обмен навыков на проживание и участие</li>
                     </ul>
                 </div>
                 <div class="participation-card">
                     <h3>🙏 Для единомышленников</h3>
-                    <p>Поддержка проекта регулярными пожертвованиями.</p>
+                    <p>Поддержка проекта регулярными пожертвованиями и участие в сообществе.</p>
                     <ul>
                         <li>Регулярные пожертвования (от 500 ₽/мес)</li>
-                        <li>Доступ к закрытому контенту и онлайн-практикам</li>
+                        <li>Доступ к закрытому контенту</li>
+                        <li>Приоритетное бронирование</li>
+                        <li>Участие в онлайн-практиках</li>
+                        <li>Имя на странице благодарностей</li>
                     </ul>
                 </div>
             </div>
@@ -289,11 +606,11 @@
     <section id="contact">
         <div class="container">
             <h2>Присоединяйся к Проекту</h2>
-            <p style="text-align: center; font-size: 1.1em; max-width: 700px; margin: 0 auto 40px;">
-                Заполни форму, и мы свяжемся с тобой, чтобы обсудить возможности участия.
+            <p style="text-align: center; font-size: 1.15em; max-width: 750px; margin: 0 auto 50px; color: #4a5a4a;">
+                Заполни форму, и мы свяжемся с тобой, чтобы обсудить возможности участия. 
+                Вместе мы создаём пространство силы и мудрости, которое изменит миллиарды жизней.
             </p>
             
-            <!-- Форма подключена к твоему Formspree -->
             <form class="contact-form" action="https://formspree.io/f/mkodvzza" method="POST">
                 <div class="form-group">
                     <label for="name">Имя *</label>
@@ -318,7 +635,7 @@
                 </div>
                 <div class="form-group">
                     <label for="message">Сообщение</label>
-                    <textarea id="message" name="message" placeholder="Расскажите о себе и как хотите участвовать..."></textarea>
+                    <textarea id="message" name="message" placeholder="Расскажите о себе и как хотите участвовать в проекте..."></textarea>
                 </div>
                 <button type="submit" class="submit-button">Отправить заявку</button>
             </form>
@@ -327,13 +644,19 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Дхарма Алтая. Центр звука и созидания.</p>
+            <p style="font-size: 1.1em; margin-bottom: 10px;">&copy; 2026 Дхарма Алтая. Центр звука и созидания.</p>
             <p>Берега реки Катунь, Республика Алтай</p>
+            <p style="margin-top: 25px; font-size: 0.95em;">
+                <a href="mailto:bholanada@ya.ru">bholanada@ya.ru</a> | 
+                <a href="https://t.me/dharm_altai">Telegram</a>
+            </p>
+            <p style="margin-top: 20px; font-style: italic; color: #d4af37;">
+                🌍 Меняем миллиарды жизней через музыку и мудрость
+            </p>
         </div>
     </footer>
 
     <script>
-        // Плавная прокрутка к якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
