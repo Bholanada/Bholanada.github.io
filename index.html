@@ -144,6 +144,42 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
+        .vedic-box {
+            background: linear-gradient(135deg, #fff9f0 0%, #fff0e0 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 50px 0;
+            border: 3px solid #d4af37;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+        .vedic-box h3 { 
+            color: #1a4d1a; 
+            font-size: 2.2em; 
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .vedic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .vedic-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #d4af37;
+        }
+        .vedic-item h4 {
+            color: #1a4d1a;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        .vedic-item p {
+            color: #4a5a4a;
+            line-height: 1.7;
+        }
+
         .budget-table { 
             width: 100%; 
             border-collapse: collapse; 
@@ -297,11 +333,11 @@
             .hero p { font-size: 1.15em; }
             .nav-links { display: none; }
             h2 { font-size: 2.2em; }
-            .vision-box { padding: 30px 20px; }
+            .vision-box, .vedic-box { padding: 30px 20px; }
             .vision-number { font-size: 3em; }
             .budget-table { font-size: 0.85em; }
             .budget-table th, .budget-table td { padding: 12px 10px; }
-            .modules-grid, .mission-content, .participation-grid { grid-template-columns: 1fr; }
+            .modules-grid, .mission-content, .participation-grid, .vedic-grid { grid-template-columns: 1fr; }
         }
 
         @keyframes fadeInUp { 
@@ -314,10 +350,11 @@
 <body>
     <header>
         <nav class="container">
-            <div class="logo">🎵 Дхарма Алтая</div>
+            <div class="logo"> Дхарма Алтая</div>
             <ul class="nav-links">
                 <li><a href="#mission">Миссия</a></li>
                 <li><a href="#vision">Видение</a></li>
+                <li><a href="#vedic">Ведическое строительство</a></li>
                 <li><a href="#modules">Пространство</a></li>
                 <li><a href="#budget">Бюджет</a></li>
                 <li><a href="#participation">Участие</a></li>
@@ -349,8 +386,8 @@
             </p>
             <div class="mission-content">
                 <div class="mission-card">
-                    <h3>🎼 Студия звука и терапии</h3>
-                    <p>Профессиональная звукозапись, обучение древним музыкальным традициям, звуковая терапия (поющие чаши, камертоны, гонги, вина). Отдельные звукоизолированные модули для каждого гостя.</p>
+                    <h3> Студия звука и терапии</h3>
+                    <p>Профессиональная звукозапись, обучение древним музыкальным традициям, звуковая терапия (поющие чаши, камертоны, гонги). Отдельные звукоизолированные модули для каждого гостя.</p>
                 </div>
                 <div class="mission-card">
                     <h3>🎬 Анимационная мастерская</h3>
@@ -367,7 +404,7 @@
             </div>
 
             <div class="vision-box">
-                <h3> Наше Видение</h3>
+                <h3>🌟 Наше Видение</h3>
                 <p>
                     Мы верим, что <strong>звук и образ</strong> — это самые мощные инструменты трансформации сознания. 
                     Создавая музыку, которая исцеляет, и мультфильмы, которые несут мудрость, мы запускаем цепную реакцию изменений.
@@ -378,6 +415,43 @@
                     который будет распространяться по всему миру. Каждый мультфильм, каждая песня, 
                     каждая практика — это семя, которое прорастёт в сознании миллионов людей.
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="vedic">
+        <div class="container">
+            <div class="vedic-box">
+                <h3>🕉️ Ведические Принципы Строительства</h3>
+                <p style="text-align: center; font-size: 1.15em; color: #4a5a4a; margin-bottom: 30px;">
+                    Центр строится в соответствии с древними знаниями Васту-шастры и ведической архитектуры
+                </p>
+                <div class="vedic-grid">
+                    <div class="vedic-item">
+                        <h4>🧭 Ориентация по сторонам света</h4>
+                        <p>Все здания ориентированы строго по сторонам света. Вход в главные помещения — с востока (направление восходящего солнца и новых начинаний). Зал для медитаций — в северо-восточной части (Ишанья, зона божественной энергии).</p>
+                    </div>
+                    <div class="vedic-item">
+                        <h4> Природные материалы</h4>
+                        <p>Строительство из алтайского кедра и лиственницы. Эти деревья обладают целебной энергетикой, естественной защитой от вредителей и создают особый микроклимат. Бревно ручной рубки сохраняет живую структуру дерева.</p>
+                    </div>
+                    <div class="vedic-item">
+                        <h4>⚖️ Баланс пяти элементов</h4>
+                        <p>Пространство сбалансировано по пяти стихиям: Земля (фундамент, камень), Вода (бассейн, река Катунь), Огонь (баня, очаг), Воздух (открытые пространства, вентиляция), Эфир (пирамида, звуковые практики).</p>
+                    </div>
+                    <div class="vedic-item">
+                        <h4>🔺 Священная геометрия</h3>
+                        <p>Пирамида для медитаций построена по принципам сакральной геометрии. Пропорции зданий соответствуют золотому сечению. Пирамидальная форма усиливает энергетические потоки и способствует глубокой медитации.</p>
+                    </div>
+                    <div class="vedic-item">
+                        <h4>🌅 Зоны активности и покоя</h4>
+                        <p>Восточная и северная части — для активной деятельности (студия, кухня). Запад и юг — для отдыха и сна. Юго-восток (Агнея) — место для бани (огненная зона). Северо-запад — для гостевых домиков.</p>
+                    </div>
+                    <div class="vedic-item">
+                        <h4>🌊 Вода и энергия</h4>
+                        <p>Бассейн и водоёмы расположены в северо-восточной части участка (зона воды по Васту). Река Катунь создаёт мощный энергетический поток. Все водные источники активируют процветание и духовный рост.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -396,17 +470,17 @@
                         <span class="module-tag">ПЕРВООЧЕРЕДНОЕ</span>
                         <h3>Командный жилой модуль</h3>
                         <p>Просторная база для жизни основателя и ключевой команды (3-4 чел.). Включает кухню, спальни, санузел и <strong>большую рабочую зону для анимации</strong>.</p>
-                        <div class="module-price">2 500 000 ₽</div>
-                        <p><strong>Площадь:</strong> 120 м²</p>
+                        <div class="module-price">5 000 000 ₽</div>
+                        <p><strong>Площадь:</strong> 120 м² | <strong>Материал:</strong> кедровое бревно</p>
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image">🎧</div>
+                    <div class="module-image"></div>
                     <div class="module-content">
                         <span class="module-tag">ДЛЯ ГОСТЕЙ</span>
                         <h3>Гостевой звукоизолированный домик</h3>
                         <p>Отдельный модуль для проживания и записи музыки. Профессиональная звукоизоляция, базовое оборудование.</p>
-                        <div class="module-price">1 000 000 ₽</div>
+                        <div class="module-price">2 000 000 ₽</div>
                         <p><strong>Площадь:</strong> 35 м² | <strong>Количество:</strong> 4 шт.</p>
                     </div>
                 </div>
@@ -416,27 +490,27 @@
                         <span class="module-tag">СТУДИЯ</span>
                         <h3>Профессиональная студия</h3>
                         <p>Полноценная студия звукозаписи с профессиональным оборудованием, акустической обработкой, пультом сведения.</p>
-                        <div class="module-price">2 000 000 ₽</div>
-                        <p><strong>Площадь:</strong> 60 м²</p>
+                        <div class="module-price">4 000 000 ₽</div>
+                        <p><strong>Площадь:</strong> 60 м² | <strong>Звукоизоляция:</strong> максимальная</p>
+                    </div>
+                </div>
+                <div class="module-card">
+                    <div class="module-image">🔺</div>
+                    <div class="module-content">
+                        <span class="module-tag">ПРАКТИКИ</span>
+                        <h3>Пирамида для медитаций</h3>
+                        <p>Сакральная геометрия для глубоких медитаций, энергетических практик, групповых церемоний. Уникальная акустика.</p>
+                        <div class="module-price">3 500 000 ₽</div>
+                        <p><strong>Площадь:</strong> 60 м² | <strong>Вместимость:</strong> до 15 чел.</p>
                     </div>
                 </div>
                 <div class="module-card">
                     <div class="module-image"></div>
                     <div class="module-content">
-                        <span class="module-tag">ПРАКТИКИ</span>
-                        <h3>Пирамида для медитаций</h3>
-                        <p>Сакральная геометрия для глубоких медитаций, энергетических практик, групповых церемоний. Уникальная акустика.</p>
-                        <div class="module-price">2 000 000 ₽</div>
-                        <p><strong>Площадь:</strong> 60 м² | <strong>Вместимость:</strong> до 15 чел.</p>
-                    </div>
-                </div>
-                <div class="module-card">
-                    <div class="module-image">🌑</div>
-                    <div class="module-content">
                         <span class="module-tag">РЕТРИТ</span>
                         <h3>Комната сенсорной депривации</h3>
                         <p>Полная изоляция (темнота, тишина) для глубокой внутренней работы, перезагрузки сознания, духовных практик.</p>
-                        <div class="module-price">800 000 ₽</div>
+                        <div class="module-price">1 800 000 ₽</div>
                         <p><strong>Площадь:</strong> 15 м² | <strong>Звукоизоляция:</strong> максимальная</p>
                     </div>
                 </div>
@@ -446,7 +520,7 @@
                         <span class="module-tag">ОЗДОРОВЛЕНИЕ</span>
                         <h3>Баня на дровах</h3>
                         <p>Традиционная алтайская баня с парной, зоной отдыха и обливания. Место для очищения тела и духа.</p>
-                        <div class="module-price">1 000 000 ₽</div>
+                        <div class="module-price">2 200 000 ₽</div>
                         <p><strong>Площадь:</strong> 40 м² | <strong>Вместимость:</strong> 6-8 чел.</p>
                     </div>
                 </div>
@@ -456,17 +530,17 @@
                         <span class="module-tag">ОЗДОРОВЛЕНИЕ</span>
                         <h3>Природный бассейн</h3>
                         <p>Естественный бассейн с фильтрацией через растения, подогревом. Единение с водой и природой.</p>
-                        <div class="module-price">1 500 000 ₽</div>
+                        <div class="module-price">3 000 000 ₽</div>
                         <p><strong>Размер:</strong> 6×4 м | <strong>Глубина:</strong> до 1.8 м</p>
                     </div>
                 </div>
                 <div class="module-card">
-                    <div class="module-image">🍽️</div>
+                    <div class="module-image">️</div>
                     <div class="module-content">
                         <span class="module-tag">ИНФРАСТРУКТУРА</span>
                         <h3>Кухня-столовая</h3>
                         <p>Просторное помещение для приготовления пищи и совместных трапез. Профессиональное оборудование, зона для вегетарианской кухни.</p>
-                        <div class="module-price">1 200 000 ₽</div>
+                        <div class="module-price">2 500 000 ₽</div>
                         <p><strong>Площадь:</strong> 60 м² | <strong>Вместимость:</strong> до 15 чел.</p>
                     </div>
                 </div>
@@ -478,7 +552,7 @@
         <div class="container">
             <h2>Бюджет Первого Этапа</h2>
             <p style="text-align: center; font-size: 1.15em; max-width: 900px; margin: 0 auto 50px; color: #4a5a4a;">
-                Прозрачная смета с необходимым запасом. Все средства идут на создание физической инфраструктуры центра.
+                Прозрачная смета с учётом алтайских реалий: доставка материалов, сложные условия, качественное дерево (кедр, лиственница), работа опытных строителей.
             </p>
             <table class="budget-table">
                 <thead>
@@ -491,25 +565,25 @@
                 </thead>
                 <tbody>
                     <tr class="category-row">
-                        <td colspan="4">🏠 ЖИЛЫЕ И РАБОЧИЕ МОДУЛИ</td>
+                        <td colspan="4">🏠 ЖИЛЫЕ И РАБОЧИЕ МОДУЛИ (кедровое бревно)</td>
                     </tr>
                     <tr>
                         <td>Командный жилой модуль (База)</td>
                         <td>120 м²</td>
-                        <td>2 500 000 ₽</td>
-                        <td>2 500 000 ₽</td>
+                        <td>5 000 000 ₽</td>
+                        <td>5 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Гостевые звукоизолированные домики</td>
                         <td>4 шт × 35 м²</td>
-                        <td>1 000 000 ₽</td>
-                        <td>4 000 000 ₽</td>
+                        <td>2 000 000 ₽</td>
+                        <td>8 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Профессиональная студия звукозаписи</td>
                         <td>60 м²</td>
-                        <td>2 000 000 ₽</td>
-                        <td>2 000 000 ₽</td>
+                        <td>4 000 000 ₽</td>
+                        <td>4 000 000 ₽</td>
                     </tr>
                     <tr class="category-row">
                         <td colspan="4">🧘 ПРАКТИКИ И МЕДИТАЦИИ</td>
@@ -517,62 +591,62 @@
                     <tr>
                         <td>Пирамида для медитаций</td>
                         <td>60 м²</td>
-                        <td>2 000 000 ₽</td>
-                        <td>2 000 000 ₽</td>
+                        <td>3 500 000 ₽</td>
+                        <td>3 500 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Комната сенсорной депривации (тёмный ретрит)</td>
                         <td>15 м²</td>
-                        <td>800 000 ₽</td>
-                        <td>800 000 ₽</td>
+                        <td>1 800 000 ₽</td>
+                        <td>1 800 000 ₽</td>
                     </tr>
                     <tr class="category-row">
                         <td colspan="4">🧖 ОЗДОРОВЛЕНИЕ</td>
                     </tr>
                     <tr>
-                        <td>Баня на дровах</td>
+                        <td>Баня на дровах (кедр)</td>
                         <td>40 м²</td>
-                        <td>1 000 000 ₽</td>
-                        <td>1 000 000 ₽</td>
+                        <td>2 200 000 ₽</td>
+                        <td>2 200 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Природный бассейн с подогревом</td>
                         <td>24 м²</td>
-                        <td>1 500 000 ₽</td>
-                        <td>1 500 000 ₽</td>
+                        <td>3 000 000 ₽</td>
+                        <td>3 000 000 ₽</td>
                     </tr>
                     <tr class="category-row">
-                        <td colspan="4">️ ИНФРАСТРУКТУРА И ТЕРРИТОРИЯ</td>
+                        <td colspan="4">🍽️ ИНФРАСТРУКТУРА И ТЕРРИТОРИЯ</td>
                     </tr>
                     <tr>
                         <td>Кухня-столовая</td>
                         <td>60 м²</td>
-                        <td>1 200 000 ₽</td>
-                        <td>1 200 000 ₽</td>
+                        <td>2 500 000 ₽</td>
+                        <td>2 500 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Инфраструктура (скважина, септик, электричество, подъездные пути)</td>
                         <td>Комплекс</td>
-                        <td>2 500 000 ₽</td>
-                        <td>2 500 000 ₽</td>
+                        <td>5 000 000 ₽</td>
+                        <td>5 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Оборудование (звук, ПК для анимации, мебель, бытовая техника)</td>
                         <td>Комплекс</td>
-                        <td>1 500 000 ₽</td>
-                        <td>1 500 000 ₽</td>
+                        <td>3 000 000 ₽</td>
+                        <td>3 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Благоустройство территории (ландшафт, дорожки, освещение)</td>
                         <td>Комплекс</td>
-                        <td>1 000 000 ₽</td>
-                        <td>1 000 000 ₽</td>
+                        <td>2 000 000 ₽</td>
+                        <td>2 000 000 ₽</td>
                     </tr>
                     <tr>
                         <td>Земля и юридические вопросы</td>
                         <td>Участок</td>
-                        <td>800 000 ₽</td>
-                        <td>800 000 ₽</td>
+                        <td>1 500 000 ₽</td>
+                        <td>1 500 000 ₽</td>
                     </tr>
                     <tr class="category-row">
                         <td colspan="4">🛡️ БЕЗОПАСНОСТЬ ПРОЕКТА</td>
@@ -581,39 +655,50 @@
                         <td><strong>Резервный фонд (10% на непредвиденные расходы)</strong></td>
                         <td>-</td>
                         <td>-</td>
-                        <td><strong>2 000 000 ₽</strong></td>
+                        <td><strong>4 200 000 ₽</strong></td>
                     </tr>
                     <tr class="total-row">
                         <td colspan="3"><strong>ОБЩИЙ БЮДЖЕТ ПЕРВОГО ЭТАПА</strong></td>
-                        <td><strong>22 800 000 ₽</strong></td>
+                        <td><strong>42 000 000 ₽</strong></td>
                     </tr>
                 </tbody>
             </table>
             <div class="roadmap-box">
-                <h3 style="color: #1a4d1a; margin-bottom: 25px; text-align: center;">💡 Реалистичная стратегия запуска (поэтапно)</h3>
+                <h3 style="color: #1a4d1a; margin-bottom: 25px; text-align: center;"> Реалистичная стратегия запуска (поэтапно)</h3>
                 <div class="roadmap-item">
                     <strong>Шаг 1 (Цель: 1 000 000 ₽):</strong>
                     <p>Сайт, экспедиция на Катунь, аренда внедорожника, работа с геодезистом, юридическая проверка и задаток за землю.</p>
                 </div>
                 <div class="roadmap-item">
-                    <strong>Шаг 2 (Цель: 4 000 000 ₽):</strong>
-                    <p>Строительство <em>Командного модуля (120 м²)</em> и базовой инфраструктуры (скважина, свет, септик). Команда заезжает и начинает работать над анимацией.</p>
+                    <strong>Шаг 2 (Цель: 8 000 000 ₽):</strong>
+                    <p>Строительство <em>Командного модуля (120 м² из кедра)</em> и базовой инфраструктуры (скважина, свет, септик). Команда заезжает и начинает работать над анимацией.</p>
                 </div>
                 <div class="roadmap-item">
-                    <strong>Шаг 3 (Цель: 6 000 000 ₽):</strong>
+                    <strong>Шаг 3 (Цель: 12 000 000 ₽):</strong>
                     <p>Строительство 2 гостевых домиков, Студии, Кухни-столовой. Запуск первых платных программ и ретритов.</p>
                 </div>
                 <div class="roadmap-item">
-                    <strong>Шаг 4 (Цель: 6 000 000 ₽):</strong>
+                    <strong>Шаг 4 (Цель: 12 000 000 ₽):</strong>
                     <p>Пирамида, баня, бассейн, комната сенсорной депривации. Полноценный запуск центра как туристического и духовного кластера.</p>
                 </div>
                 <div class="roadmap-item">
-                    <strong>Шаг 5 (Цель: 5 800 000 ₽):</strong>
+                    <strong>Шаг 5 (Цель: 9 000 000 ₽):</strong>
                     <p>Завершение всех гостевых домиков, благоустройство территории, закупка финального оборудования. Использование резервного фонда при необходимости.</p>
                 </div>
                 <p style="text-align: center; margin-top: 25px; color: #4a5a4a; font-style: italic;">
                     Не нужно собирать всю сумму сразу. Двигаемся поэтапно, запуская каждый модуль по мере готовности.
                 </p>
+            </div>
+            <div style="background: #fff9f0; padding: 30px; border-radius: 15px; margin-top: 30px; border: 2px solid #d4af37;">
+                <h4 style="color: #1a4d1a; margin-bottom: 15px;">📊 Почему цены выше средних?</h4>
+                <ul style="list-style: none; line-height: 2; color: #4a5a4a;">
+                    <li>✓ <strong>Кедровое бревно ручной рубки</strong> — 35-40 тыс. ₽/м³ (вместо обычного бруса)</li>
+                    <li>✓ <strong>Доставка на Алтай</strong> — сложная логистика, удалённость</li>
+                    <li>✓ <strong>Квалифицированные плотники</strong> — мастера по ведическому строительству</li>
+                    <li>✓ <strong>Усиленное утепление</strong> — суровый климат Алтая (до -40°C)</li>
+                    <li>✓ <strong>Качественная звукоизоляция</strong> — специальные материалы для студии</li>
+                    <li>✓ <strong>Инженерные системы</strong> — автономность, септик, скважина</li>
+                </ul>
             </div>
         </div>
     </section>
@@ -707,7 +792,7 @@
                 <a href="https://t.me/bholanada">Telegram: @bholanada</a>
             </p>
             <p style="margin-top: 20px; font-style: italic; color: #d4af37;">
-                🌍 Меняем миллиарды жизней через музыку и мудрость
+                 Меняем миллиарды жизней через музыку и мудрость
             </p>
         </div>
     </footer>
